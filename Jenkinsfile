@@ -123,6 +123,7 @@ pipeline {
             dir ('./src'){
                 // docker rm -f $(docker ps -aq) = 실행 중인 docker container 다 shutdown
                 sh '''
+                pwd
                 docker run -p 80:80 -d server
                 '''
             }
