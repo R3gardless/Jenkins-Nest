@@ -85,7 +85,7 @@ describe('CatService', () => {
         breed: testBreed1,
         age: 4,
       });
-      expect(cat).toEqual(twoCat);
+      expect(cat).toEqual(oneCat);
     });
   });
 
