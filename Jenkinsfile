@@ -2,10 +2,6 @@ pipeline {
     // 스테이지 별로 다른 거
     agent any // 아무 Jenkins 사용
 
-    triggers {
-        pollSCM('*/3 * * * *') // Cron syntax, 3분 주기로 실행
-    }
-
     environment {
       AWS_ACCESS_KEY_ID = credentials('awsAccessKeyId') // AWS IAM 기반 Credentials ID 설정
       AWS_SECRET_ACCESS_KEY = credentials('awsSecretAccessKey') // AWS IAM 기반 Credentials ID 설정
@@ -14,6 +10,13 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'Jenkins_Study',
+                    url: 'https://github.com/R3gardless/Jenkins-Nest.git'
+            }
+        }
         // 레포지토리를 다운로드 받음
         stage('Prepare') {
             agent any
