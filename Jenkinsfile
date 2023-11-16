@@ -102,7 +102,7 @@ pipeline {
 
             dir ('./src'){ // Jenkins node 에 docker 설치 필요
                 sh """
-                docker build . -t server --build-arg env=${PROD}
+                docker build . -t server
                 """
             }
           }
