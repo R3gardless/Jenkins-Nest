@@ -59,7 +59,7 @@ pipeline {
             // Docker plugin and Docker Pipeline 두개를 깔아야 사용가능!
             agent {
               docker {
-                image 'node:latest'
+                image 'node:18.6.0-alpine3.15'
               }
             }
             
@@ -77,7 +77,7 @@ pipeline {
         stage('Test Backend') {
           agent {
             docker { // Jenkins 에 노드가 없으니 Docker를 사용하여 Node 사용
-              image 'node:latest'
+              image 'node:18.6.0-alpine3.15'
             }
           }
           steps {
