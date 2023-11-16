@@ -66,7 +66,7 @@ pipeline {
             steps {
               dir ('./src'){
                   sh '''
-                  rm -rf node_modules
+                  rm -rf /var/lib/jenkins/workspace/Jenkins_Study@2/node_modules
                   npm install&&
                   npm run lint
                   '''
