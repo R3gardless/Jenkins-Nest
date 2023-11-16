@@ -66,6 +66,7 @@ pipeline {
             steps {
               dir ('./src'){
                   sh '''
+                  rm -rf node_modules
                   npm install&&
                   npm run lint
                   '''
