@@ -93,10 +93,8 @@ pipeline {
           steps {
             echo 'Build Backend'
 
-            dir ('./src'){ // Jenkins node 에 docker 설치 필요
+            script { // Jenkins node 에 docker 설치 필요
                 sh """
-                pwd
-                ls
                 docker build . -t server
                 """
             }
@@ -115,10 +113,9 @@ pipeline {
           steps {
             echo 'Build Backend'
 
-            dir ('./src'){
+            script{
                 // docker rm -f $(docker ps -aq) = 실행 중인 docker container 다 shutdown
                 sh '''
-                pwd
                 docker run -p 80:80 -d server
                 '''
             }
