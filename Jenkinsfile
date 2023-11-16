@@ -96,6 +96,7 @@ pipeline {
             dir ('./src'){ // Jenkins node 에 docker 설치 필요
                 sh """
                 pwd
+                ls
                 docker build . -t server
                 """
             }
