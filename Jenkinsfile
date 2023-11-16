@@ -107,25 +107,25 @@ pipeline {
           }
         }
         
-        stage('Deploy Backend') {
-          agent any
+        // stage('Deploy Backend') {
+        //   agent any
 
-          steps {
-            echo 'Build Backend'
+        //   steps {
+        //     echo 'Build Backend'
 
-            script{
-                // docker rm -f $(docker ps -aq) = 실행 중인 docker container 다 shutdown
-                sh '''
-                docker run -p 80:80 -d server
-                '''
-            }
-          }
+        //     script{
+        //         // docker rm -f $(docker ps -aq) = 실행 중인 docker container 다 shutdown
+        //         sh '''
+        //         docker run -p 80:80 -d server
+        //         '''
+        //     }
+        //   }
 
-          post {
-            success {
-              echo 'Deploy Backend Success'
-            }
-          }
-        }
+        //   post {
+        //     success {
+        //       echo 'Deploy Backend Success'
+        //     }
+        //   }
+        // }
     }
 }
