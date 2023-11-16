@@ -19,5 +19,8 @@ COPY nest-cli.json ./
 # If you have Prisma files, copy them too
 COPY prisma ./prisma
 
+# Expose the port your app runs on (if needed)
+EXPOSE 80
+
 # Define the command to start your application (modify as needed)
 CMD ["npm", "run", "start:dev"]
