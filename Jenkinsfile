@@ -10,13 +10,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    credentialsId: 'Jenkins_Study',
-                    url: 'https://github.com/R3gardless/Jenkins-Nest.git'
-            }
-        }
         // 레포지토리를 다운로드 받음
         stage('Prepare') {
             agent any
@@ -102,6 +95,7 @@ pipeline {
 
             dir ('./src'){ // Jenkins node 에 docker 설치 필요
                 sh """
+                pwd
                 docker build . -t server
                 """
             }
